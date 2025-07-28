@@ -1,43 +1,34 @@
 return {
-	"neanias/everforest-nvim",
-	version = false,
-	priority = 1000,
+	"folke/tokyonight.nvim",
 	lazy = false,
+	priority = 1000,
 	config = function()
-		require("everforest").setup({
-			background = "soft", -- bisa diganti dengan "medium" atau "hard"
-			transparent_background = true,
-			italics = true,
+		require("tokyonight").setup({
+			style = "night",
+			transparent = true,
+			terminal_colors = true,
+			styles = {
+				comments = { italic = true },
+				keywords = { italic = false },
+				functions = {},
+				variables = {},
+				sidebars = "transparent",
+				floats = "transparent",
+			},
+			sidebars = { "qf", "help", "packer" },
+			day_brightness = 0.2,
+			dim_inactive = false,
 		})
 
-		vim.cmd.colorscheme("everforest")
+		vim.cmd("colorscheme tokyonight")
 
-		-- Atur transparansi manual untuk elemen tertentu (seperti moonlight)
-		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
-		vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
-		vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
-		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-		vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+		-- ✨ Custom warna dari palet yang kamu inginkan
+		vim.api.nvim_set_hl(0, "Comment", { fg = "#7ca9c0", italic = true }) -- langit biru
+		vim.api.nvim_set_hl(0, "Statement", { fg = "#e94b28", bold = true }) -- api/asap
+		vim.api.nvim_set_hl(0, "Function", { fg = "#d6a864" }) -- krem keemasan
+		vim.api.nvim_set_hl(0, "Identifier", { fg = "#a67c52" }) -- cokelat kayu
+		vim.api.nvim_set_hl(0, "Type", { fg = "#ff6740" }) -- oranye cerah
+		vim.api.nvim_set_hl(0, "CursorLine", { bg = "#1e293b" }) -- biru tua
+		vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#3f4a62", bg = "none" }) -- garis antar pane
 	end,
 }
-
--- return {
--- 	"shaunsingh/moonlight.nvim",
--- 	priority = 1000,
--- 	lazy = false,
--- 	config = function()
--- 		vim.cmd.colorscheme("moonlight")
---
--- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- 		vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
--- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
--- 		vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
--- 		vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
--- 		vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
--- 		vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
--- 		vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
--- 	end,
--- }
