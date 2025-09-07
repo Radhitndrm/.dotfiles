@@ -64,6 +64,11 @@ vim.keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>", { desc = "Tutup buffer" })
 -- Pick buffer
 vim.keymap.set("n", "<A-p>", "<Cmd>BufferPick<CR>", { desc = "Pilih buffer dengan huruf" })
 
+-- Select all dengan "vv"
+vim.keymap.set("n", "vv", "ggVG", { desc = "Select all" })
+
+-- Tambah koma di akhir baris dengan ',,'
+vim.keymap.set("n", ",,", "mzA,<Esc>`z", { desc = "Tambah koma di akhir baris" })
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
